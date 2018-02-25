@@ -1,6 +1,11 @@
 import nltk
-from nltk.stem.lancaster import LancasterStemmer
-stemmer = LancasterStemmer()
+# from nltk.stem.lancaster import LancasterStemmer
+# stemmer = LancasterStemmer()
+
+from nltk.stem import SnowballStemmer
+# print(" ".join(SnowballStemmer.languages))
+stemmer = SnowballStemmer("finnish")
+
 
 import numpy as np
 import tflearn
@@ -80,8 +85,8 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net, tensorboard_dir='tflearn_logs')
 model.load('./model.tflearn')
 
-print (classify('is your shop open today?'))
-print (classify('are you open today?'))
-print (classify('do you take cash?'))
-print (classify('what kind of mopeds do you rent?'))
-print (classify('Goodbye, see you later'))
+# print (classify('moi kaunis nainen'))
+print (classify('vapaa tänään'))
+# print (classify('do you take cash?'))
+# print (classify('what kind of mopeds do you rent?'))
+# print (classify('Goodbye, see you later'))
